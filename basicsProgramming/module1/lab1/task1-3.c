@@ -4,7 +4,7 @@
 void task1_3()
 {
     const double EPS = 1e-9;
-    double x, y, result;
+    double x, y;
 
     printf("Введите число X: ");
     while (scanf("%lf", &x) != 1)
@@ -28,7 +28,7 @@ void task1_3()
         return;
     }
 
-    result = (x + 1) / (x - 1);
+    double result = (x + 1) / (x - 1);
     if (result < 0)
     {
         printf("Ошибка: вычисление невозможно");
