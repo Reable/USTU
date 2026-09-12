@@ -1,0 +1,433 @@
+{
+
+  "Program Template": {
+    "prefix": "prog",
+    "body": [
+      "program ${1:Name};",
+      "",
+      "begin",
+      "\t${0}",
+      "end."
+    ],
+    "description": "Шаблон программы на Pascal"
+  },
+
+  "Program begin Template": {
+    "prefix": "begin",
+    "body": [
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Шаблон программы на Pascal"
+  },
+
+  "Program with Variables": {
+    "prefix": "progvar",
+    "body": [
+      "program ${1:Name};",
+      "",
+      "var",
+      "\t${2:x}: ${3:integer};",
+      "",
+      "begin",
+      "\t${0}",
+      "end."
+    ],
+    "description": "Программа с объявлением переменных"
+  },
+
+  "Uses": {
+    "prefix": "uses",
+    "body": [
+      "uses",
+      "\t${1:crt};"
+    ],
+    "description": "Подключение модулей"
+  },
+
+  "Variable": {
+    "prefix": "var",
+    "body": [
+      "var",
+      "\t${1:x}: ${2:integer};"
+    ],
+    "description": "Объявление переменной"
+  },
+
+  "Constants": {
+    "prefix": "const",
+    "body": [
+      "const",
+      "\t${1:NAME} = ${2:value};"
+    ],
+    "description": "Объявление константы"
+  },
+
+  "Read": {
+    "prefix": "read",
+    "body": [
+      "read(${1:x});"
+    ],
+    "description": "Ввод значения"
+  },
+
+  "Readln": {
+    "prefix": "readln",
+    "body": [
+      "readln(${1:x});"
+    ],
+    "description": "Ввод значения с переходом на новую строку"
+  },
+
+  "Write": {
+    "prefix": "write",
+    "body": [
+      "write(${1:x});"
+    ],
+    "description": "Вывод значения"
+  },
+
+  "Writeln": {
+    "prefix": "writeln",
+    "body": [
+      "writeln(${1:x});"
+    ],
+    "description": "Вывод значения с переходом на новую строку"
+  },
+
+  "If": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} then",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Условие if"
+  },
+
+  "If Else": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:condition} then",
+      "begin",
+      "\t${2}",
+      "end;",
+      "else",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Условие if-else"
+  },
+
+  "If Single Line": {
+    "prefix": "ifs",
+    "body": [
+      "if ${1:condition} then ${0};"
+    ],
+    "description": "Однострочное условие"
+  },
+
+  "For To": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} := ${2:1} to ${3:n} do",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Цикл for с увеличением"
+  },
+
+  "For DownTo": {
+    "prefix": "ford",
+    "body": [
+      "for ${1:i} := ${2:n} downto ${3:1} do",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Цикл for с уменьшением"
+  },
+
+  "While": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition} do",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Цикл while"
+  },
+
+  "Repeat Until": {
+    "prefix": "repeat",
+    "body": [
+      "repeat",
+      "\t${1}",
+      "until ${0:condition};"
+    ],
+    "description": "Цикл repeat-until"
+  },
+
+  "Case": {
+    "prefix": "case",
+    "body": [
+      "case ${1:x} of",
+      "\t${2:1}: ${3};",
+      "\t${4:2}: ${5};",
+      "else",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Конструкция case"
+  },
+
+  "Procedure": {
+    "prefix": "proc",
+    "body": [
+      "procedure ${1:Name}(${2:x}: ${3:integer});",
+      "begin",
+      "\t${0}",
+      "end;"
+    ],
+    "description": "Процедура"
+  },
+
+  "Function": {
+    "prefix": "func",
+    "body": [
+      "function ${1:Name}(${2:x}: ${3:integer}): ${4:integer};",
+      "begin",
+      "\t${1} := ${0};",
+      "end."
+    ],
+    "description": "Функция с возвращаемым значением"
+  },
+
+  "Array": {
+    "prefix": "arr",
+    "body": [
+      "var",
+      "\t${1:a}: array[${2:1}..${3:100}] of ${4:integer};"
+    ],
+    "description": "Одномерный массив"
+  },
+
+  "Array 2D": {
+    "prefix": "arr2",
+    "body": [
+      "var",
+      "\t${1:a}: array[${2:1}..${3:n}, ${4:1}..${5:m}] of ${6:integer};"
+    ],
+    "description": "Двумерный массив"
+  },
+
+  "Array Input": {
+    "prefix": "arrin",
+    "body": [
+      "for ${1:i} := ${2:1} to ${3:n} do",
+      "\tread(${4:a}[${1:i}]);"
+    ],
+    "description": "Ввод элементов массива"
+  },
+
+  "Array Output": {
+    "prefix": "arrout",
+    "body": [
+      "for ${1:i} := ${2:1} to ${3:n} do",
+      "\twriteln(${4:a}[${1:i}]);"
+    ],
+    "description": "Вывод элементов массива"
+  },
+
+  "2D Array Input": {
+    "prefix": "arr2in",
+    "body": [
+      "for ${1:i} := ${2:1} to ${3:n} do",
+      "begin",
+      "\tfor ${4:j} := ${5:1} to ${6:m} do",
+      "\t\tread(${7:a}[${1:i}, ${4:j}]);",
+      "end"
+    ],
+    "description": "Ввод двумерного массива"
+  },
+
+  "2D Array Output": {
+    "prefix": "arr2out",
+    "body": [
+      "for ${1:i} := ${2:1} to ${3:n} do",
+      "begin",
+      "\tfor ${4:j} := ${5:1} to ${6:m} do",
+      "\t\twrite(${7:a}[${1:i}, ${4:j}], ' ');",
+      "\twriteln;",
+      "end"
+    ],
+    "description": "Вывод двумерного массива"
+  },
+
+  "Record": {
+    "prefix": "record",
+    "body": [
+      "type",
+      "\t${1:TName} = record",
+      "\t\t${2:field}: ${3:integer};",
+      "\tend"
+    ],
+    "description": "Объявление записи"
+  },
+
+  "String": {
+    "prefix": "str",
+    "body": [
+      "${1:s}: string;"
+    ],
+    "description": "Переменная типа string"
+  },
+
+  "Integer": {
+    "prefix": "int",
+    "body": [
+      "${1:x}: integer;"
+    ],
+    "description": "Переменная типа integer"
+  },
+
+  "Real": {
+    "prefix": "real",
+    "body": [
+      "${1:x}: real;"
+    ],
+    "description": "Переменная типа real"
+  },
+
+  "Boolean": {
+    "prefix": "bool",
+    "body": [
+      "${1:x}: boolean;"
+    ],
+    "description": "Переменная типа boolean"
+  },
+
+  "Max": {
+    "prefix": "max",
+    "body": [
+      "if ${1:a} > ${2:b} then",
+      "\t${3:max} := ${1:a}",
+      "else",
+      "\t${3:max} := ${2:b};"
+    ],
+    "description": "Поиск максимума из двух значений"
+  },
+
+  "Min": {
+    "prefix": "min",
+    "body": [
+      "if ${1:a} < ${2:b} then",
+      "\t${3:min} := ${1:a}",
+      "else",
+      "\t${3:min} := ${2:b};"
+    ],
+    "description": "Поиск минимума из двух значений"
+  },
+
+  "Swap": {
+    "prefix": "swap",
+    "body": [
+      "${3:temp} := ${1:a};",
+      "${1:a} := ${2:b};",
+      "${2:b} := ${3:temp};"
+    ],
+    "description": "Обмен двух переменных"
+  },
+
+  "Sum Loop": {
+    "prefix": "sum",
+    "body": [
+      "${1:sum} := 0;",
+      "for ${2:i} := ${3:1} to ${4:n} do",
+      "\t${1:sum} := ${1:sum} + ${5:a}[${2:i}];"
+    ],
+    "description": "Суммирование элементов"
+  },
+
+  "Count Loop": {
+    "prefix": "count",
+    "body": [
+      "${1:count} := 0;",
+      "for ${2:i} := ${3:1} to ${4:n} do",
+      "\tif ${5:condition} then",
+      "\t\tInc(${1:count});"
+    ],
+    "description": "Подсчёт элементов по условию"
+  },
+
+  "Inc": {
+    "prefix": "inc",
+    "body": [
+      "Inc(${1:x});"
+    ],
+    "description": "Увеличить переменную на 1"
+  },
+
+  "Dec": {
+    "prefix": "dec",
+    "body": [
+      "Dec(${1:x});"
+    ],
+    "description": "Уменьшить переменную на 1"
+  },
+
+  "Break": {
+    "prefix": "break",
+    "body": [
+      "Break;"
+    ],
+    "description": "Прервать цикл"
+  },
+
+  "Continue": {
+    "prefix": "continue",
+    "body": [
+      "Continue;"
+    ],
+    "description": "Перейти к следующей итерации"
+  },
+
+  "Comment": {
+    "prefix": "comment",
+    "body": [
+      "// ${0}"
+    ],
+    "description": "Однострочный комментарий"
+  },
+
+  "Block Comment": {
+    "prefix": "commentblock",
+    "body": [
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Многострочный комментарий"
+  },
+
+  "Program Read with Result": {
+    "prefix": "read_result",
+    "body": [
+      "{\\$I-}",
+      "readln(${0});",
+      "{\\$I+}",
+      "",
+      "if IOResult <> 0 then",
+      "begin",
+      "\twriteln('');",
+      "\tHalt(1);",
+      "end;"
+    ],
+    "description": "Шаблон ввода данных с проверкой вводимого результата"
+  }
+}

@@ -1,0 +1,396 @@
+{
+    "Main function": {
+        "prefix": "main",
+        "body": [
+            "#include <stdio.h>",
+            "#include <stdlib.h>",
+            "",
+            "int main(int argc, char *argv[]) {",
+            "\t${0}",
+            "\treturn 0;",
+            "}"
+        ],
+        "description": "Шаблон главной функции с includes"
+    },
+    "Function declaration": {
+        "prefix": "func",
+        "body": [
+            "${1:void} ${2:function_name}(${3:void}) {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Объявление функции"
+    },
+    "For loop": {
+        "prefix": "for",
+        "body": [
+            "for (${1:int} ${2:i} = 0; ${2:i} < ${3:n}; ${2:i}++) {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Цикл for"
+    },
+    "For each array": {
+        "prefix": "forarr",
+        "body": [
+            "for (${1:int} ${2:i} = 0; ${2:i} < ${3:sizeof(${4:arr})/sizeof(${4:arr}[0])}; ${2:i}++) {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Цикл по массиву с автоматическим расчётом размера"
+    },
+    "While loop": {
+        "prefix": "while",
+        "body": [
+            "while (${1:condition}) {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Цикл while"
+    },
+    "Do-while loop": {
+        "prefix": "dowhile",
+        "body": [
+            "do {",
+            "\t${0}",
+            "} while (${1:condition});"
+        ],
+        "description": "Цикл do-while"
+    },
+    "If condition": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Условие if"
+    },
+    "If-else": {
+        "prefix": "ife",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2}",
+            "} else {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "Условие if-else"
+    },
+    "Switch case": {
+        "prefix": "switch",
+        "body": [
+            "switch (${1:var}) {",
+            "\tcase ${2:value}:",
+            "\t\t${0}",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\tbreak;",
+            "}"
+        ],
+        "description": "Конструкция switch-case"
+    },
+    "Printf": {
+        "prefix": "printf",
+        "body": [
+            "printf(\"${1:%s}\\n\", ${2:var});"
+        ],
+        "description": "Вывод с переносом строки"
+    },
+    "Scanf": {
+        "prefix": "scanf",
+        "body": [
+            "scanf(\"${1:%d}\", &${2:var});"
+        ],
+        "description": "Ввод данных"
+    },
+    "Array declaration": {
+        "prefix": "arr",
+        "body": [
+            "${1:int} ${2:arr}[${3:10}] = {0};"
+        ],
+        "description": "Массив с нулевой инициализацией"
+    },
+    "Array with values": {
+        "prefix": "arrv",
+        "body": [
+            "${1:int} ${2:arr}[] = { ${3:1, 2, 3} };"
+        ],
+        "description": "Массив с явной инициализацией"
+    },
+    "Struct declaration": {
+        "prefix": "struct",
+        "body": [
+            "typedef struct {",
+            "\t${1:int id};",
+            "\t${2:char name[50]};",
+            "\t${3:// другие поля}",
+            "} ${4:MyStruct};"
+        ],
+        "description": "Объявление структуры с typedef"
+    },
+    "Struct instance": {
+        "prefix": "obj",
+        "body": [
+            "${1:MyStruct} ${2:obj} = {",
+            "\t.${3:id} = ${4:0},",
+            "\t.${5:name} = ${6:\"\"}",
+            "};"
+        ],
+        "description": "Создание экземпляра структуры"
+    },
+    "Struct pointer (malloc)": {
+        "prefix": "objptr",
+        "body": [
+            "${1:MyStruct} *${2:obj} = (${1:MyStruct} *)malloc(sizeof(${1:MyStruct}));",
+            "if (${2:obj} == NULL) {",
+            "\tfprintf(stderr, \"Memory allocation failed\\n\");",
+            "\texit(EXIT_FAILURE);",
+            "}",
+            "${2:obj}->${3:id} = ${4:0};"
+        ],
+        "description": "Создание объекта через malloc"
+    },
+    "Malloc": {
+        "prefix": "malloc",
+        "body": [
+            "${1:int} *${2:ptr} = (${1:int} *)malloc(${3:n} * sizeof(${1:int}));",
+            "if (${2:ptr} == NULL) {",
+            "\tfprintf(stderr, \"Memory allocation failed\\n\");",
+            "\texit(EXIT_FAILURE);",
+            "}"
+        ],
+        "description": "Выделение динамической памяти"
+    },
+    "Free and null": {
+        "prefix": "free",
+        "body": [
+            "free(${1:ptr});",
+            "${1:ptr} = NULL;"
+        ],
+        "description": "Освобождение памяти"
+    },
+    "Linked list node": {
+        "prefix": "node",
+        "body": [
+            "typedef struct ${1:Node} {",
+            "\t${2:int} data;",
+            "\tstruct ${1:Node} *next;",
+            "} ${1:Node};"
+        ],
+        "description": "Узел связного списка"
+    },
+    "Enum": {
+        "prefix": "enum",
+        "body": [
+            "typedef enum {",
+            "\t${1:VALUE_1} = 0,",
+            "\t${2:VALUE_2},",
+            "\t${3:VALUE_3}",
+            "} ${4:MyEnum};"
+        ],
+        "description": "Перечисление"
+    },
+    "Union": {
+        "prefix": "union",
+        "body": [
+            "typedef union {",
+            "\t${1:int} i;",
+            "\t${2:float} f;",
+            "\t${3:char} c;",
+            "} ${4:MyUnion};"
+        ],
+        "description": "Объединение"
+    },
+    "Include": {
+        "prefix": "#inc",
+        "body": [
+            "#include <${1:stdio.h}>"
+        ],
+        "description": "Подключение заголовочного файла"
+    },
+    "Define constant": {
+        "prefix": "#def",
+        "body": [
+            "#define ${1:CONSTANT_NAME} ${2:value}"
+        ],
+        "description": "Макрос константы"
+    },
+    "If error check": {
+        "prefix": "iferr",
+        "body": [
+            "if (${1:condition}) {",
+            "\tfprintf(stderr, \"Error: ${2:message}\\n\");",
+            "\treturn ${3:-1};",
+            "}"
+        ],
+        "description": "Проверка ошибки"
+    },
+    "File open": {
+        "prefix": "fopen",
+        "body": [
+            "FILE *${1:fp} = fopen(\"${2:filename.txt}\", \"${3:r}\");",
+            "if (${1:fp} == NULL) {",
+            "\tfprintf(stderr, \"Error opening file\\n\");",
+            "\treturn 1;",
+            "}"
+        ],
+        "description": "Открытие файла"
+    },
+    "File close": {
+        "prefix": "fclose",
+        "body": [
+            "fclose(${1:fp});",
+            "${1:fp} = NULL;"
+        ],
+        "description": "Закрытие файла"
+    },
+    "Pointer declaration": {
+        "prefix": "ptr",
+        "body": [
+            "${1:int} *${2:ptr} = &${3:var};"
+        ],
+        "description": "Объявление указателя"
+    },
+    "Null check": {
+        "prefix": "nullcheck",
+        "body": [
+            "if (${1:ptr} == NULL) {",
+            "\tfprintf(stderr, \"Null pointer\\n\");",
+            "\treturn ${2:-1};",
+            "}"
+        ],
+        "description": "Проверка на NULL"
+    },
+    "Const variable": {
+        "prefix": "const",
+        "body": [
+            "const ${1:int} ${2:VAR_NAME} = ${3:value};"
+        ],
+        "description": "Константная переменная"
+    },
+    "Static variable": {
+        "prefix": "static",
+        "body": [
+            "static ${1:int} ${2:var} = ${3:0};"
+        ],
+        "description": "Статическая переменная"
+    },
+    "Typedef": {
+        "prefix": "typedef",
+        "body": [
+            "typedef ${1:int} ${2:MyType};"
+        ],
+        "description": "Псевдоним типа"
+    },
+
+    "Clear buffer function": {
+        "prefix": "clearbuf",
+        "body": [
+            "void clearBuffer() {",
+            "\tint c;",
+            "\twhile ((c = getchar()) != '\\n' && c != EOF);",
+            "}"
+        ],
+        "description": "Функция очистки буфера ввода (классический способ)"
+    },
+    "Clear buffer inline": {
+        "prefix": "clearbuf_inline",
+        "body": [
+            "int c;",
+            "while ((c = getchar()) != '\\n' && c != EOF);"
+        ],
+        "description": "Очистка буфера inline (внутри функции)"
+    },
+    "Safe scanf with buffer clear": {
+        "prefix": "safescanf",
+        "body": [
+            "${1:int} ${2:var};",
+            "",
+            "while (scanf(\"${3:%d}\", &${2:var}) != 1) {",
+            "\tfprintf(stderr, \"Ошибка ввода. Попробуйте снова: \");",
+            "\tint c;",
+            "\twhile ((c = getchar()) != '\\n' && c != EOF);",
+            "}"
+        ],
+        "description": "Безопасный ввод с очисткой буфера при ошибке"
+    },
+    "Input loop with validation": {
+        "prefix": "inputloop",
+        "body": [
+            "${1:int} ${2:var};",
+            "bool isValid = false;",
+            "",
+            "printf(\"${4:Введите значение}: \");",
+            "while (!isValid) {",
+            "\tif (scanf(\"${3:%d}\", &${2:var}) != 1) {",
+            "\t\tprintf(\"Ошибка: введите корректное число\\n\");",
+            "\t\tint c;",
+            "\t\twhile ((c = getchar()) != '\\n' && c != EOF);",
+            "\t\tcontinue;",
+            "\t}",
+            "\tisValid = true;",
+            "}"
+        ],
+        "description": "Цикл ввода с валидацией и очисткой буфера"
+    },
+    "Read string safely": {
+        "prefix": "readstr",
+        "body": [
+            "char ${1:str}[${2:100}];",
+            "",
+            "// Очищаем буфер перед чтением строки",
+            "int c;",
+            "while ((c = getchar()) != '\\n' && c != EOF);",
+            "",
+            "fgets(${1:str}, sizeof(${1:str}), stdin);",
+            "// Удаляем символ новой строки в конце",
+            "${1:str}[strcspn(${1:str}, \"\\n\")] = '\\0';"
+        ],
+        "description": "Безопасное чтение строки с очисткой буфера"
+    },
+    "Flush stdin warning": {
+        "prefix": "fflush_warn",
+        "body": [
+            "// ⚠️ ВНИМАНИЕ: fflush(stdin) работает только на Windows!",
+            "// На macOS/Linux используйте clearBuffer()",
+            "fflush(stdin);"
+        ],
+        "description": "fflush(stdin) с предупреждением о непереносимости"
+    },
+    "Read char with buffer clear": {
+        "prefix": "readchar",
+        "body": [
+            "char ${1:ch};",
+            "",
+            "// Очищаем буфер перед чтением символа",
+            "int c;",
+            "while ((c = getchar()) != '\\n' && c != EOF);",
+            "",
+            "${1:ch} = getchar();"
+        ],
+        "description": "Чтение одного символа с предварительной очисткой буфера"
+    },
+    "Multiple inputs with clear": {
+        "prefix": "multiinput",
+        "body": [
+            "${1:int} ${2:a};",
+            "${3:int} ${4:b};",
+            "",
+            "printf(\"Введите первое число: \");",
+            "while (scanf(\"%d\", &${2:a}) != 1) {",
+            "\tprintf(\"Ошибка: \");",
+            "\tint c;",
+            "\twhile ((c = getchar()) != '\\n' && c != EOF);",
+            "}",
+            "",
+            "printf(\"Введите второе число: \");",
+            "while (scanf(\"%d\", &${4:b}) != 1) {",
+            "\tprintf(\"Ошибка: \");",
+            "\tint c;",
+            "\twhile ((c = getchar()) != '\\n' && c != EOF);",
+            "}"
+        ],
+        "description": "Множественный ввод с очисткой буфера для каждого поля"
+    }
+}
