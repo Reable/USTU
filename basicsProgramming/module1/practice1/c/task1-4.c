@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void clearBuffer(){
+void clearBuffer()
+{
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
