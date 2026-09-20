@@ -13,7 +13,7 @@ void task1_3()
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
     }
-    
+
     printf("Введите число Y: ");
     while (scanf("%lf", &y) != 1)
     {
@@ -36,7 +36,7 @@ void task1_3()
     }
 
     result = sqrt(sqrt(result)) + 18 * x * pow(y, 2);
-    
+
     printf("Результат = %.4f", result);
 }
 
