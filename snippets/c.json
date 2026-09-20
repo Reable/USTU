@@ -283,11 +283,13 @@
         ],
         "description": "Псевдоним типа"
     },
+    // Clear buffer
 
     "Clear buffer function": {
         "prefix": "clearbuf",
         "body": [
-            "void clearBuffer() {",
+            "void clearBuffer()",
+            "{",
             "\tint c;",
             "\twhile ((c = getchar()) != '\\n' && c != EOF);",
             "}"
