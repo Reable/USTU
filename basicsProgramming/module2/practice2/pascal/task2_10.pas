@@ -21,7 +21,7 @@ begin
         n := trunc(x);
         writeln(n);
 
-        if n mod 2 = 0 
+        if n mod 2 = 0
         then writeln('f(x) = 1')
         else writeln('f(x) = -1');
     end;

@@ -2,7 +2,7 @@ program Task3_9;
 
 uses InputUtils;
 
-var 
+var
     i, n, elem, count: integer;
     sum: longint;
     average: real;

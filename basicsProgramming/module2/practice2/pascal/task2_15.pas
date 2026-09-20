@@ -20,15 +20,15 @@ begin
 
     if n = 0 then
     begin
-        if m mod k = 0 
+        if m mod k = 0
         then writeln('Минимальное количество автобусов = ', m div k)
         else writeln('Минимальное количество автобусов = ', m div k + 1);
     end
     else if (n > 0) and (m < 2)
         then writeln('Для поездки вам не хватает взрослых')
-    else 
+    else
     begin
-        if n mod (k - 2) = 0 
+        if n mod (k - 2) = 0
         then temp := n div (k - 2)
         else temp := n div (k - 2) + 1;
 
@@ -36,7 +36,7 @@ begin
         begin
             writeln('Для организации поездки необходимо больше взрослых');
         end
-        else 
+        else
         begin
             temp := n + m;
             if temp mod k = 0 then

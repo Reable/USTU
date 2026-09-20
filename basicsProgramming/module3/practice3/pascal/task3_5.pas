@@ -2,7 +2,7 @@ program Task3_5;
 
 uses InputUtils;
 
-var 
+var
     i, n:integer;
     s: longint;
 

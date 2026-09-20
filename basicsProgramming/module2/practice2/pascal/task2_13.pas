@@ -2,7 +2,7 @@ program Task2_13;
 
 uses InputUtils;
 
-var 
+var
     a, b, c, d, x: integer;
 
 begin

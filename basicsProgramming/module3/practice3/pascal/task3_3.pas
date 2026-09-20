@@ -1,18 +1,18 @@
 program Task3_3;
 
-var 
+var
     i: longint;
     first, last: integer;
     a, b, c, d, f, count: integer;
 
 begin
-    
+
     writeln('------------------------- A -------------------------');
     for i := 100 to 999 do
     begin
-        last := i mod 10;         
+        last := i mod 10;
         first := i div 100;
-        
+
         if (last = 3) or (last = 7) then
             if first = last then writeln(i);
     end;
@@ -30,7 +30,7 @@ begin
 
         if c <> 0 then
         begin
-            if(b = d) and ((a + f) mod c = 0) then 
+            if(b = d) and ((a + f) mod c = 0) then
             begin
                 write(i:7);
                 count := count + 1;

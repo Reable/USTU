@@ -8,7 +8,7 @@ begin
     write('Введите координату X и Y: ');
     readln(&x, &y);
     {$I+}
-    
+
     if IOResult <> 0 then
     begin
         writeln('Ошибка введите корректные значения');
@@ -21,15 +21,15 @@ begin
         begin
             if y > 0 then
             begin
-                if x > 0 
+                if x > 0
                 then writeln('I четверть')
                 else writeln('II четверть')
             end
-            else 
+            else
             begin
-                if x < 0 
+                if x < 0
                 then writeln('III четверть')
                 else writeln('IV четверть')
             end
-        end; 
+        end;
 end.

@@ -8,23 +8,23 @@ begin
     x := 99;
     y := 99;
     z := 99;
-    
+
     {Example A}
     if (x = y) and (y = z) then
     begin
-        writeln('Треугольник равнобедренный');    
+        writeln('Треугольник равнобедренный');
     end;
 
     {Example B}
     if ((x = y) and (y != z)) or ((y = z) and (z != x))  then
     begin
-        writeln('Треугольник равностороний');    
+        writeln('Треугольник равностороний');
     end;
 
     {Example C}
     if (x <> y) and (y <> z) and (x <> z) then
     begin
-        writeln('Числа не равны');    
+        writeln('Числа не равны');
     end;
 
     {Example D}
