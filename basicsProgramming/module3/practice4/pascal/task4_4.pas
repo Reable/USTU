@@ -22,7 +22,7 @@ begin
   begin
     last := n mod q;
 
-    if last > max then max := last;
+    if last + 1 > max then max := last + 1;
 
     result := symbols[last + 1] + result;
 
@@ -30,5 +30,5 @@ begin
   end;
 
   writeln('Число в q = ', q,' = ', result);
-  writeln('Максимальное число: ', max);
+  writeln('Максимальное число: ', symbols[max]);
 end.

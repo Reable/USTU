@@ -19,7 +19,6 @@ begin
     else
     begin
         n := trunc(x);
-        writeln(n);
 
         if n mod 2 = 0
         then writeln('f(x) = 1')

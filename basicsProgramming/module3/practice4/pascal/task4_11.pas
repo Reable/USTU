@@ -14,7 +14,8 @@ begin
     writeln('Введите целое число');
     readln(n);
     {$I+}
-  until n < last;
 
-  writeln('последовательность заканчивается числом: ', last);
+  until (IOResult <> 0) or (n < last);
+
+  writeln('Последовательность заканчивается числом: ', last);
 end.

@@ -5,7 +5,7 @@ uses InputUtils;
 var n: integer;
 
 begin
-    ReadOneIntegers(
+    ReadOneInteger(
         'Введите количество коров на лугу',
         'Ошибка: введите целове число коров',
         n

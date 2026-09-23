@@ -1,8 +1,8 @@
 program Task4_19;
 
-uses InputUtils;
-
-var n, sum, count, maxSum, sumHistory: int64;
+var
+  i, len: integer;
+  n, sum, count, maxSum, sumHistory: int64;
 
 function SumNumber(number: int64): integer;
 var
@@ -23,10 +23,21 @@ begin
 end;
 
 begin
-  writeln('Для остановки набора введите (0)');
+  writeln('Введите длину последовательности');
+  {$I-}
+  readln(len);
+  {$I+}
+
+  if IOResult <> 0 then
+  begin
+    writeln('Ошибка: введите целое число длины последовательности');
+    Halt(1);
+  end;
+
   sum := 0;
 
-  repeat
+  for i := 1 to len do
+  begin
     {$I-}
     writeln('Введите целое число');
     readln(n);
@@ -47,8 +58,7 @@ begin
       end
       else if sum = maxSum then count += 1;
     end;
-
-  until false;
+  end;
 
   writeln('Максимальная сумма цифр: ', maxSum, ' Число: ', sumHistory);
   writeln('Встретилась раз: ', count);
